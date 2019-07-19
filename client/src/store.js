@@ -4,6 +4,11 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
+let api = axios.create({
+  baseURL: 'localhost:3000'
+})
+
+
 export default new Vuex.Store({
   //temp placeholders in defaults so we can work on formatting
 
@@ -58,7 +63,13 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    getAllPosts({ commit, dispatch }) {//TODO
+
+    async getAllPosts({ commit, dispatch }) {
+      let suffix = "api/posts"
+      try {
+        let res = await api.get(suffix)
+        commit("setPosts", res.data)
+      } catch (err) { console.error(err) }//TODO
     },
     vote_on_comment({ commit, dispatch }) {//TODO
     }

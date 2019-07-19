@@ -11,8 +11,12 @@
   // data{text img}
   // timestamp:required
   import PostCard from '@/components/PostCard'
+
   export default {
     name: 'home',
+    mounted() {
+      this.$store.dispatch("getAllPosts")
+    },
     computed: {
       posts() {
         return this.$store.state.posts

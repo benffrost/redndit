@@ -1,10 +1,10 @@
 <template>
   <div class="PostCard">
     <hr>
-    <h1>{{ post.name }}</h1>
-    <h3>{{ post.author}}</h3>
-    <p>post.text</p>
-    <p></p>
+    <h2>{{ post.name }}</h2>
+    <h4>{{ post.author}}</h4>
+    <p>{{ post.data.text }}</p>
+    <h4>score: {{ post.score }}</h4>
 
   </div>
 </template>
@@ -21,7 +21,6 @@
     ],
     computed: {
       post() {
-        debugger
         return this.$store.state.posts.find(el => el.postID == this.pID)
       }
     },
