@@ -5,7 +5,8 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 let api = axios.create({
-  baseURL: '//localhost:3000/api'
+  baseURL: '//localhost:3000/api',
+  withCredentials: true
 })
 
 
