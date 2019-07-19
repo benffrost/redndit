@@ -5,9 +5,8 @@
     <h4>{{ post.author}}</h4>
     <p>{{ post.data.text }}</p>
     <h4>score: {{ post.score }}</h4>
-    <router-link :to="{name: 'PostDisplay', params: {postID: pID }}">
-      VIEW</router-link>
-
+    <router-link tag="b-btn" :to="{name: 'PostDisplay', params: {postID: pID }}">
+      view me</router-link>
   </div>
 </template>
 

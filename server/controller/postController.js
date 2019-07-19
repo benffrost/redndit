@@ -2,18 +2,18 @@ import PostService from "../services/postService"
 import express from 'express'
 
 export default class PostController {
-  async createPost(req, res, next) {
-    try {
-      let post = await PostService.create(req.body)
-      res.send(post)
-    } catch (err) {
-      next(err)
-    }
-  }
   async getAllPosts(req, res, next) {
     try {
       let posts = await PostService.find()
       res.send(posts)
+    } catch (err) {
+      next(err)
+    }
+  }
+  async createPost(req, res, next) {
+    try {
+      let post = await PostService.create(req.body)
+      res.send(post)
     } catch (err) {
       next(err)
     }

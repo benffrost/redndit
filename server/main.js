@@ -10,12 +10,12 @@ let port = 3000
 let server = express()
 
 server.use(cors())
-
-server.use('/api/posts', new PostController().router)
-server.use('/api/comments', new CommentController().router)
 server.use(bp.json())
 
 
+
+server.use('/api/posts', new PostController().router)
+server.use('/api/comments', new CommentController().router)
 
 
 server.use((error, req, res, next) => {
