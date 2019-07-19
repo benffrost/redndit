@@ -13,11 +13,6 @@ export default new Router({
       component: Home
     },
     {
-      path: '/:postID',
-      name: 'PostDisplay',
-      component: PostDisplay
-    },
-    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -26,6 +21,11 @@ export default new Router({
       component: function () {
         return import(/* webpackChunkName: "about" */ './views/About.vue')
       }
+    },
+    {
+      path: '/:postID',
+      name: 'PostDisplay',
+      component: PostDisplay
     }
   ]
 })
