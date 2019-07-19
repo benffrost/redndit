@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <PostCard v-for="post in posts" ID="post.ID"></PostCard>
+    <PostCard v-for="post in posts" :key="post.postID" :pID="post.postID"></PostCard>
   </div>
 </template>
 
@@ -13,8 +13,14 @@
   import PostCard from '@/components/PostCard'
   export default {
     name: 'home',
+    computed: {
+      posts() {
+        return this.$store.state.posts
+      }
+    },
     components: {
       PostCard
     }
+
   }
 </script>

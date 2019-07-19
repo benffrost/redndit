@@ -27,7 +27,7 @@ export default new Vuex.Store({
           img: "placehold.it/150x150"
         },
         score: 0,
-        postID: "1254235"
+        postID: "76534"
       }],
 
 
@@ -61,6 +61,6 @@ export default new Vuex.Store({
     getAllPosts({ commit, dispatch }) {//TODO
     },
     vote_on_comment({ commit, dispatch }) {//TODO
-    },
+    }
   }
 })
