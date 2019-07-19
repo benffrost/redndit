@@ -29,24 +29,25 @@ export default new Vuex.Store({
         score: 0,
         postID: "1254235"
       }],
-      
-      
-            
+
+
+
     comments: [
       {
-title: "N/A",
-     author:"Jarl Carl",
-      text:"my other tavern is nicer",
-      score: 0,
+        title: "N/A",
+        author: "Jarl Carl",
+        text: "my other tavern is nicer",
+        score: 0,
         parent: "1254235",
-      commentID: "972548"
+        commentID: "972548"
       }],
-  
-  
-    
-    mutations: {
+  },
+
+
+
+  mutations: {
     setPosts(state, data) {
-    this.posts = data
+      this.posts = data
     },
     setComments(state, data) {
       this.comments = data
@@ -61,9 +62,5 @@ title: "N/A",
     },
     vote_on_comment({ commit, dispatch }) {//TODO
     },
-    getAllPosts({ commit, dispatch }) {//TODO
-    },
-    getAllPosts({ commit, dispatch }) {//TODO
-    ,
   }
 })
