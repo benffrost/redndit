@@ -5,7 +5,7 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 let api = axios.create({
-  baseURL: 'localhost:3000'
+  baseURL: '//localhost:3000/api'
 })
 
 
@@ -65,7 +65,7 @@ export default new Vuex.Store({
   actions: {
 
     async getAllPosts({ commit, dispatch }) {
-      let suffix = "api/posts"
+      let suffix = "/posts"
       try {
         let res = await api.get(suffix)
         commit("setPosts", res.data)

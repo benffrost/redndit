@@ -5,6 +5,7 @@
     <h4>{{ post.author}}</h4>
     <p>{{ post.data.text }}</p>
     <h4>score: {{ post.score }}</h4>
+    <button>VIEW</button>
 
   </div>
 </template>
