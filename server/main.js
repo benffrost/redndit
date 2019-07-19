@@ -9,20 +9,12 @@ let port = 3000
 
 let server = express()
 
+server.use(cors())
+
 server.use('/api/posts', new PostController().router)
 server.use('/api/comments', new CommentController().router)
 server.use(bp.json())
 
-
-var whitelist = ['http://localhost:8080'];
-var corsOptions = {
-  origin: function (origin, callback) {
-    var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
-    callback(null, originIsWhitelisted);
-  },
-  credentials: true
-};
-server.use(cors(corsOptions))
 
 
 

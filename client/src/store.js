@@ -5,8 +5,7 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 let api = axios.create({
-  baseURL: '//localhost:3000/api',
-  withCredentials: true
+  baseURL: '//localhost:3000/api'
 })
 
 
@@ -53,10 +52,10 @@ export default new Vuex.Store({
 
   mutations: {
     setPosts(state, data) {
-      this.posts = data
+      state.posts = data
     },
     setComments(state, data) {
-      this.comments = data
+      state.comments = data
     },
     sortPosts(state, data) { //TODO
     },
@@ -70,7 +69,8 @@ export default new Vuex.Store({
       try {
         let res = await api.get(suffix)
         commit("setPosts", res.data)
-      } catch (err) { console.error(err) }//TODO
+      } catch (err) { console.error(err) }
+
     },
     vote_on_comment({ commit, dispatch }) {//TODO
     }
