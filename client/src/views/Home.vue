@@ -1,18 +1,20 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <PostCard v-for="post in posts" ID="post.ID"></PostCard>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  //NOTE
+  // title:required
+  // author:required
+  // data{text img}
+  // timestamp:required
+  import PostCard from '@/components/PostCard'
+  export default {
+    name: 'home',
+    components: {
+      PostCard
+    }
   }
-}
 </script>
