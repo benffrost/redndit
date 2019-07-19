@@ -72,7 +72,13 @@ export default new Vuex.Store({
       } catch (err) { console.error(err) }
 
     },
-    vote_on_comment({ commit, dispatch }) {//TODO
-    }
+    async getComments({ commit, dispatch }, parentID) {
+      let suffix = "/comments/" + parentID
+      try {
+        let res = await api.get(suffix)
+        commit("setComments", res.data)
+      } catch (err) { console.error(err) }
+
+    },
   }
 })

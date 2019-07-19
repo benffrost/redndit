@@ -13,6 +13,11 @@ export default new Router({
       component: Home
     },
     {
+      path: '/:postID',
+      name: 'PostDisplay',
+      component: PostDisplay
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
