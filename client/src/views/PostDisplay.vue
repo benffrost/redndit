@@ -3,7 +3,7 @@
     <b-container fluid>
       <b-row>
         <b-col>
-          <PostCard :activePost="post"></PostCard>
+          <PostCard :pID="this.$route.params.postID"></PostCard>
           <b-btn @click="deletePost">Delete Post</b-btn>
         </b-col>
       </b-row>
@@ -34,9 +34,8 @@
       return {};
     },
     mounted() {
-
-      this.$store.dispatch("getPost", this.$route.params.postID);
       this.$store.dispatch("getComments", this.$route.params.postID);
+      this.$store.dispatch("getPost", this.$route.params.postID);
     },
     computed: {
       post() {
