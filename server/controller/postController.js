@@ -30,7 +30,7 @@ export default class PostController {
   }
   async getPostComments(req, res, next) {
     try {
-      let postComments = await PostService.find(req.params.comments)
+      let postComments = await PostService.find({ post: req.params.postId })
       if (!postComments) {
         return res.status(400).send("No comments to show.")
       }
@@ -69,6 +69,7 @@ export default class PostController {
       .get('', this.getAllPosts)
       .post('', this.createPost)
       .get('/:postId', this.getPost)
+      .get('/:postId/comments', this.getPostComments)
       .put('/:postId', this.editPost)
       .put('/:postId', this.votePost)
       .delete('/:postId', this.deletePost)
