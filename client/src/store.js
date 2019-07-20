@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import router from './router';
+import postService from '../../server/services/postService';
 
 Vue.use(Vuex)
 
@@ -64,7 +65,8 @@ export default new Vuex.Store({
 
 
 
-    sortPosts(state, data) { //TODO
+    sortPosts(state, sortFunc) {
+      state.posts.sort(sortFunc)
     },
     sortComments() { //TODO
     }
@@ -142,5 +144,9 @@ export default new Vuex.Store({
         commit("deleteComment", commentID)
       } catch (err) { console.error(err) }
     },
+
+    sortPosts({ commit, dispatch }, sortFunc) {
+      commit("sortPosts", sortFunc)
+    }
   }
 })
