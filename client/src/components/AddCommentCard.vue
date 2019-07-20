@@ -1,16 +1,13 @@
 <template>
   <div class="AddCommentCard">
-    <form class="col-8" @submit.prevent="addComment">
+    <form class="col-3 border border-dark" @submit.prevent="addComment">
       <div class="form-group">
-        <label for="Name">Title</label>
-        <input type="text" name="name" class="form-control">
+        <input type="text" v-model="comment.author" placeholder="Name" class="form-control">
       </div>
       <div class="form-group">
-        <label for="Name">Name</label>
-        <input type="text" name="name" class="form-control">
+        <input type="text" name="" v-model='comment.text' placeholder="type here" class="form-control">
       </div>
-
-
+      <b-button type="submit" variant="outline-primary">Submit Comment</b-button>
     </form>
   </div>
 </template>
@@ -20,10 +17,19 @@
   export default {
     name: 'AddCommentCard',
     data() {
-      return {}
+      return {
+        comment: {
+          author: '',
+          text: ''
+        }
+      }
     },
     computed: {},
-    methods: {},
+    methods: {
+      addComment() {
+        this.$store.dispatch('addComment', this.comment)
+      }
+    },
     components: {}
   }
 </script>
