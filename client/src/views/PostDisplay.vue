@@ -3,20 +3,14 @@
     <b-container fluid>
       <b-row>
         <b-col>
-          <h1>Title: {{ post.name }}</h1>
+          <PostCard :pID="this.$route.params.postID"></PostCard>
         </b-col>
 
       </b-row>
       <b-row>
         <b-col cols="1"></b-col>
         <b-col>
-          <b-row v-for="comment in comments">
-            <b-card header-tag="header" footer-tag="footer">
-              <h6 slot="header" class="mb-0">{{ comment.author }}</h6>
-              <b-card-text>{{ comment.text }}</b-card-text>
-              <h6 slot="footer" class="mb-0">Score: {{ comment.score }} </h6>
-            </b-card>
-          </b-row>
+          <CommentCard v-for="comment in comments" :key="comment._id" :pID="comment._id">></CommentCard>
         </b-col>
       </b-row>
     </b-container>
@@ -26,22 +20,32 @@
 
 
 <script>
+  import PostCard from '@/components/PostCard'
+  import CommentCard from '@/components/CommentCard'
+
   export default {
     name: 'PostDisplay',
     data() {
       return {}
     },
     mounted() {
+      //      this.$store.dispatch("getComments", this.$route.params.postID)
       this.$store.dispatch("getComments", this.$route.params.postID)
     },
     computed: {
       post() {
-        return this.$store.state.posts.find(el => el.postID == this.$route.params.postID)
+        debugger
+        return this.$store.state.posts.find(el => el._id == this.$route.params.postID)
       },
       comments() {
         return this.$store.state.comments
       }
     },
+    components: {
+      PostCard,
+      CommentCard
+    },
+
     methods: {},
     components: {}
   }
