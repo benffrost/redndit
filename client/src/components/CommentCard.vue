@@ -12,6 +12,8 @@
 
 
 <script>
+  import CommentVote from "@/components/CommentVote";
+
   export default {
     name: 'CommentCard',
     data() {
@@ -26,7 +28,9 @@
       }
     },
     methods: {},
-    components: {}
+    components: {
+      CommentVote
+    }
   }
 </script>
 

@@ -1,14 +1,16 @@
 <template>
-  <div class="PostCard" @click="switchView">
+  <div class="PostCard">
     <b-row class="my-2">
       <b-col>
         <b-card header-tag="header" footer-tag="footer">
-          <div slot="header" class="mb-0">
+          <div slot="header" class="mb-0" @click="switchView">
             <h3>{{ post.title }}</h3>
             <h6>{{ post.author }}</h6>
           </div>
           <b-card-text>{{ post.text }}</b-card-text>
-          <h6 slot="footer" class="mb-0">Score: {{ post.score }} </h6>
+          <h6 slot="footer" class="mb-0">
+            <PostVote :pID="pID"></PostVote>
+          </h6>
         </b-card>
       </b-col>
     </b-row>
@@ -17,6 +19,8 @@
 
 
 <script>
+  import PostVote from "@/components/PostVote";
+
   export default {
     name: 'PostCard',
     data() {
@@ -36,7 +40,9 @@
       }
 
     },
-    components: {}
+    components: {
+      PostVote
+    }
   }
 </script>
 
