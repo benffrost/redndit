@@ -51,8 +51,7 @@
       AddCommentCard
     },
 
-    methods: {},
-    components: {}
+    methods: {}
   }
 </script>
 
