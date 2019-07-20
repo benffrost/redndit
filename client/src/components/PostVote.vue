@@ -1,5 +1,7 @@
 <template>
-  <div class="component">
+  <div class="PostVote">
+    <i class="ra ra ra-muscle-up" @click="upVote"></i>Score: {{ post.score }}<i class="ra ra ra-burning-meteor"
+      @click="downVote"></i>
 
 
   </div>
@@ -7,13 +9,33 @@
 
 
 <script>
+
   export default {
-    name: 'component',
+    name: 'PostVote',
+
+    props: [
+      "pID"
+    ],
     data() {
       return {}
     },
-    computed: {},
-    methods: {},
+    computed: {
+      post() {
+        return this.$store.state.posts.find(el => el._id == this.pID)
+      }
+    },
+    methods: {
+      upVote() {
+        let data = this.post
+        data.score += 1
+        this.$store.dispatch('editPost', data)
+      },
+      downVote() {
+        let data = this.post
+        data.score -= 1
+        this.$store.dispatch('editPost', data)
+      }
+    },
     components: {}
   }
 </script>
