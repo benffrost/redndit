@@ -1,19 +1,21 @@
 <template>
   <div class="PostDisplay">
     <b-container fluid>
+
       <b-row>
         <b-col>
           <PostCard :pID="this.$route.params.postID"></PostCard>
           NOTE
           <!-- <button class="btn btn-danger" @click="deletePost">Delete Post</button> -->
         </b-col>
-
       </b-row>
+
       <b-row>
         <b-col cols="1"></b-col>
         <b-col>
           <CommentCard v-for="comment in comments" :key="comment._id" :pID="comment._id"></CommentCard>
         </b-col>
+
         <b-col>
           <AddCommentCard></AddCommentCard>
         </b-col>
