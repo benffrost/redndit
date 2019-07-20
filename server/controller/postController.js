@@ -28,6 +28,17 @@ export default class PostController {
       next(err)
     }
   }
+  async getPostComments(req, res, next) {
+    try {
+      let postComments = await PostService.find(req.params.comments)
+      if (!postComments) {
+        return res.status(400).send("No comments to show.")
+      }
+    } catch (error) {
+      next(err)
+    }
+  }
+
   async editPost(req, res, next) {
     try {
       let editingPost = await PostService.findByIdAndUpdate(req.params.postId, req.body, { new: true })
