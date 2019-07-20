@@ -4,7 +4,7 @@
       <b-row>
         <b-col>
           <PostCard :pID="this.$route.params.postID"></PostCard>
-          <button variant="danger" @click="deletePost">Delete Post</button>
+          <b-btn @click="deletePost">Delete Post</b-btn>
         </b-col>
       </b-row>
 
@@ -41,6 +41,9 @@
 
   export default {
     name: "PostDisplay",
+    props: [
+      "postID"
+    ],
     data() {
       return {};
     },

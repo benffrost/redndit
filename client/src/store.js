@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import router from './router';
 
 Vue.use(Vuex)
 
@@ -13,37 +14,9 @@ export default new Vuex.Store({
   //temp placeholders in defaults so we can work on formatting
 
   state: {
-    posts: [
-      {
-        name: "Carl's Tavern",
-        author: "Carl",
-        data: {
-          text: "hello and welcome to my tavern",
-          img: "placehold.it/150x150"
-        },
-        score: 0,
-        postID: "1254235"
-      },
-      {
-        name: "Jarl's Tavern",
-        author: "Jarl Carl",
-        data: {
-          text: "hello and welcome to my other tavern",
-          img: "placehold.it/150x150"
-        },
-        score: 0,
-        postID: "76534"
-      }],
+    posts: [],
 
-    comments: [
-      {
-        title: "N/A",
-        author: "Jarl Carl",
-        text: "my other tavern is nicer",
-        score: 0,
-        parent: "1254235",
-        commentID: "972548"
-      }],
+    comments: [],
 
     post: {}
   },
@@ -133,6 +106,7 @@ export default new Vuex.Store({
       try {
         let res = await api.delete(suffix)
         commit("deletePost", postID)
+        router.push({ name: 'home' })
       } catch (err) { console.error(err) }
     },
 
