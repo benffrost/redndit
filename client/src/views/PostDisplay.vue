@@ -4,6 +4,8 @@
       <b-row>
         <b-col>
           <PostCard :pID="this.$route.params.postID"></PostCard>
+          NOTE
+          <!-- <button class="btn btn-danger" @click="deletePost">Delete Post</button> -->
         </b-col>
 
       </b-row>
@@ -35,6 +37,7 @@
     mounted() {
       this.$store.dispatch("getComments", this.$route.params.postID)
       this.$store.dispatch("getPost", this.$route.params.postID)
+
     },
     computed: {
       post() {
@@ -51,7 +54,11 @@
       AddCommentCard
     },
 
-    methods: {},
+    methods: {
+      NOTE    //   deletePost() {
+      //    this.$store.dispatch('deletePost', this.$route.params.postID)
+      //  }
+    },
     components: {}
   }
 </script>

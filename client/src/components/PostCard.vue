@@ -25,7 +25,9 @@
         return this.$store.state.posts.find(el => el._id == this.pID)
       }
     },
-    methods: {},
+    methods: {
+
+    },
     components: {}
   }
 </script>
