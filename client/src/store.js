@@ -138,7 +138,7 @@ export default new Vuex.Store({
 
 
     async getComments({ commit, dispatch }, parentID) {
-      let suffix = "/comments/" + parentID
+      let suffix = parentID + "/comments"
       try {
         let res = await api.get(suffix)
         commit("setComments", res.data)
