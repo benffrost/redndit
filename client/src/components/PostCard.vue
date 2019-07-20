@@ -1,7 +1,7 @@
 <template>
   <div class="PostCard">
     <b-row class="my-2">
-      <b-col>
+      <b-col v-if="post">
         <b-card header-tag="header" footer-tag="footer">
           <div slot="header" class="mb-0" @click="switchView">
             <h3>{{ post.title }}</h3>

@@ -20,7 +20,6 @@
   export default {
     name: 'home',
     mounted() {
-      this.$store.dispatch("getAllPosts")
     },
     computed: {
       posts() {
