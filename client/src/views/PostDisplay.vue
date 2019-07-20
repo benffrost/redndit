@@ -4,8 +4,7 @@
       <b-row>
         <b-col>
           <PostCard :pID="this.$route.params.postID"></PostCard>
-          NOTE
-          <!-- <button class="btn btn-danger" @click="deletePost">Delete Post</button> -->
+          <button variant="danger" @click="deletePost">Delete Post</button>
         </b-col>
       </b-row>
 
@@ -17,7 +16,6 @@
 
         <b-col>
           <AddCommentCard></AddCommentCard>
-          <!-- <button variant="danger" @click="deletePost" >Delete Post</button>  -->
         </b-col>
       </b-row>
 
@@ -37,41 +35,40 @@
 
 
 <script>
-  import PostCard from '@/components/PostCard'
-  import CommentCard from '@/components/CommentCard'
-  import AddCommentCard from '@/components/AddCommentCard'
+  import PostCard from "@/components/PostCard";
+  import CommentCard from "@/components/CommentCard";
+  import AddCommentCard from "@/components/AddCommentCard";
 
   export default {
-    name: 'PostDisplay',
+    name: "PostDisplay",
     data() {
-      return {}
+      return {};
     },
     mounted() {
-      this.$store.dispatch("getComments", this.$route.params.postID)
-      this.$store.dispatch("getPost", this.$route.params.postID)
-
+      this.$store.dispatch("getComments", this.$route.params.postID);
+      this.$store.dispatch("getPost", this.$route.params.postID);
     },
     computed: {
       post() {
-        debugger
-        return this.$store.state.post
+        debugger;
+        return this.$store.state.post;
       },
       comments() {
-        return this.$store.state.comments
+        return this.$store.state.comments;
       }
     },
     components: {
       PostCard,
       CommentCard,
-      AddCommentCard
+      AddCommentCard,
     },
+
     methods: {
-      // deletePost() {
-      //   this.$store.dispatch('deleteComment._id', this.deletePost._id)
+      deletePost() {
+        this.$store.dispatch('deletePost', this.$route.params.postID)
+      }
     }
-  }
-
-
+  };
 </script>
 
 <style scoped>
