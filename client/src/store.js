@@ -80,9 +80,11 @@ export default new Vuex.Store({
     },
 
     async getPost({ commit, dispatch }, postID) {
+
       let suffix = "/posts/" + postID
       try {
         let res = await api.get(suffix)
+
         commit("setPost", res.data)
       } catch (err) { console.error(err) }
     },

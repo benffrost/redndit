@@ -25,6 +25,7 @@ export default class PostController {
       if (!post) {
         return res.status(400).send("No post at this ID.")
       }
+      res.send(post)
     } catch (err) {
       next(err)
     }

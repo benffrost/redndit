@@ -28,10 +28,16 @@
     },
     props: [
       "pID"
+
     ],
     computed: {
       post() {
-        return this.$store.state.posts.find(el => el._id == this.pID)
+        if (!this.$store.state.post._id) {
+          return this.$store.state.posts.find(el => el._id == this.pID)
+        } else {
+          return this.$store.state.post
+        }
+
       }
     },
     methods: {

@@ -31,6 +31,7 @@ export default new Router({
     {
       path: '/:postID',
       name: 'PostDisplay',
+      props: true,
       component: PostDisplay
     }
   ]
