@@ -1,12 +1,17 @@
 <template>
   <div class="PostCard" @click="switchView">
-    <hr>
-    <h2>{{ post.title }}</h2>
-    <h4>{{ post.author}}</h4>
-    <!-- <p>{{ post.data.text }}</p>
-    <h4>score: {{ post.score }}</h4> -->
-    <!-- <router-link tag="b-btn" :to="{name: 'PostDisplay', params: {postID: pID }}">
-      view me</router-link> -->
+    <b-row class="my-2">
+      <b-col>
+        <b-card header-tag="header" footer-tag="footer">
+          <div slot="header" class="mb-0">
+            <h3>{{ post.title }}</h3>
+            <h6>{{ post.author }}</h6>
+          </div>
+          <b-card-text>{{ post.text }}</b-card-text>
+          <h6 slot="footer" class="mb-0">Score: {{ post.score }} </h6>
+        </b-card>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
