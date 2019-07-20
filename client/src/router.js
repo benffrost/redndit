@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import PostDisplay from './views/PostDisplay'
+import AddPost from './views/AddPost'
 
 Vue.use(Router)
 
@@ -21,6 +22,11 @@ export default new Router({
       component: function () {
         return import(/* webpackChunkName: "about" */ './views/About.vue')
       }
+    },
+    {
+      path: '/addPost',
+      name: 'addPost',
+      component: AddPost
     },
     {
       path: '/:postID',

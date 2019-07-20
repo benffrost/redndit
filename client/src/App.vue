@@ -3,6 +3,7 @@
     <div id="nav">
       <i class="ra-5x ra  ra-love-howl"></i>
       <router-link to="/">Home</router-link> |
+      <router-link to="/addPost">New Post</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view />

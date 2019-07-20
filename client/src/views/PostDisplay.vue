@@ -10,7 +10,10 @@
       <b-row>
         <b-col cols="1"></b-col>
         <b-col>
-          <CommentCard v-for="comment in comments" :key="comment._id" :pID="comment._id">></CommentCard>
+          <CommentCard v-for="comment in comments" :key="comment._id" :pID="comment._id"></CommentCard>
+        </b-col>
+        <b-col>
+          <AddCommentCard></AddCommentCard>
         </b-col>
       </b-row>
     </b-container>
@@ -22,6 +25,7 @@
 <script>
   import PostCard from '@/components/PostCard'
   import CommentCard from '@/components/CommentCard'
+  import AddCommentCard from '@/components/AddCommentCard'
 
   export default {
     name: 'PostDisplay',
@@ -29,13 +33,13 @@
       return {}
     },
     mounted() {
-      //      this.$store.dispatch("getComments", this.$route.params.postID)
       this.$store.dispatch("getComments", this.$route.params.postID)
+      this.$store.dispatch("getPost", this.$route.params.postID)
     },
     computed: {
       post() {
         debugger
-        return this.$store.state.posts.find(el => el._id == this.$route.params.postID)
+        return this.$store.state.post
       },
       comments() {
         return this.$store.state.comments
@@ -43,7 +47,8 @@
     },
     components: {
       PostCard,
-      CommentCard
+      CommentCard,
+      AddCommentCard
     },
 
     methods: {},
