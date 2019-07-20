@@ -8,15 +8,12 @@
         </b-col>
       </b-row>
 
+
+      <CommentCard v-for="comment in comments" :key="comment._id" :pID="comment._id"></CommentCard>
       <b-row>
-        <b-col cols="1"></b-col>
         <b-col>
-          <CommentCard v-for="comment in comments" :key="comment._id" :pID="comment._id"></CommentCard>
+          <AddCommentCard :pID="this.$route.params.postID"></AddCommentCard>
         </b-col>
-      </b-row>
-      <b-col>
-        <AddCommentCard :pID="this.$route.params.postID"></AddCommentCard>
-      </b-col>
       </b-row>
     </b-container>
   </div>

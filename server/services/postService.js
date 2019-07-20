@@ -8,7 +8,7 @@ let _schema = new mongoose.Schema({
   author: { type: String, required: true },
   text: { type: String, required: true },
   img: { type: String },
-  score: { type: Number }
+  score: { type: Number, required: true }
 
 
 
