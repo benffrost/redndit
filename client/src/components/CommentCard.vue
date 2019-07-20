@@ -1,11 +1,14 @@
 <template>
   <div class="CommentCard">
-    <b-row>
-      <b-card header-tag="header" footer-tag="footer">
-        <h6 slot="header" class="mb-0">{{ comment.author }}</h6>
-        <b-card-text>{{ comment.text }}</b-card-text>
-        <h6 slot="footer" class="mb-0">Score: {{ comment.score }} </h6>
-      </b-card>
+    <b-row class="my-1">
+      <b-col cols="1"></b-col>
+      <b-col cols="11">
+        <b-card header-tag="header" footer-tag="footer">
+          <h6 slot="header" class="mb-0">{{ comment.author }}</h6>
+          <b-card-text>{{ comment.text }}</b-card-text>
+          <h6 slot="footer" class="mb-0">Score: {{ comment.score }} </h6>
+        </b-card>
+      </b-col>
     </b-row>
   </div>
 </template>
