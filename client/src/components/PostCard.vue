@@ -1,12 +1,12 @@
 <template>
-  <div class="PostCard">
+  <div class="PostCard" @click="switchView">
     <hr>
     <h2>{{ post.title }}</h2>
     <h4>{{ post.author}}</h4>
     <!-- <p>{{ post.data.text }}</p>
     <h4>score: {{ post.score }}</h4> -->
-    <router-link tag="b-btn" :to="{name: 'PostDisplay', params: {postID: pID }}">
-      view me</router-link>
+    <!-- <router-link tag="b-btn" :to="{name: 'PostDisplay', params: {postID: pID }}">
+      view me</router-link> -->
   </div>
 </template>
 
@@ -26,6 +26,9 @@
       }
     },
     methods: {
+      switchView() {
+        this.$router.push({ name: 'PostDisplay', params: { postID: this.pID } })
+      }
 
     },
     components: {}
