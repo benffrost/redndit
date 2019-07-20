@@ -15,7 +15,7 @@
         </b-col>
       </b-row>
       <b-col>
-        <AddCommentCard></AddCommentCard>
+        <AddCommentCard :pID="this.$route.params.postID"></AddCommentCard>
       </b-col>
       </b-row>
     </b-container>

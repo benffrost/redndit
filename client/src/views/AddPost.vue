@@ -1,5 +1,6 @@
 <template>
   <div class="AddPost">
+    <AddPostCard></AddPostCard>
     <!-- //TODO add post form here -->
   </div>
 </template>
@@ -15,7 +16,9 @@ export default {
   },
   computed: {},
   methods: {},
-  components: {}
+  components: {
+    AddPostCard
+  }
 };
 </script>
 

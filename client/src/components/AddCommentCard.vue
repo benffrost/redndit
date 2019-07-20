@@ -20,14 +20,23 @@
       return {
         comment: {
           author: '',
-          text: ''
+          text: '',
+          score: 0,
+          post: this.pID
         }
       }
+
+
     },
+    props: [
+      "pID"
+    ],
     computed: {},
     methods: {
       addComment() {
         this.$store.dispatch('addComment', this.comment)
+
+
       }
     },
     components: {}
