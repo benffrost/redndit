@@ -38,7 +38,6 @@
       switchView() {
         this.$router.push({ name: 'PostDisplay', params: { postID: this.pID } })
       }
-
     },
     components: {
       PostVote
