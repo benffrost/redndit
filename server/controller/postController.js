@@ -1,4 +1,5 @@
 import PostService from "../services/postService"
+import CommentService from "../services/commentService"
 import express from 'express'
 
 export default class PostController {
@@ -30,12 +31,14 @@ export default class PostController {
   }
   async getPostComments(req, res, next) {
     try {
-      let postComments = await PostService.find(req.params.comments)
+      let postComments = await CommentService.find({ post: req.params.postId })
       if (!postComments) {
         return res.status(400).send("No comments to show.")
+      } else {
+        res.send(postComments)
       }
     } catch (error) {
-      next(err)
+      next(error)
     }
   }
 
@@ -69,6 +72,7 @@ export default class PostController {
       .get('', this.getAllPosts)
       .post('', this.createPost)
       .get('/:postId', this.getPost)
+      .get('/:postId/comments', this.getPostComments)
       .put('/:postId', this.editPost)
       .put('/:postId', this.votePost)
       .delete('/:postId', this.deletePost)

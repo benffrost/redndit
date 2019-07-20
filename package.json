@@ -1,7 +1,6 @@
 {
   "name": "redndit",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "cors": "^2.8.5",
@@ -14,5 +13,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benffrost/redndit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benffrost/redndit/issues"
+  },
+  "homepage": "https://github.com/benffrost/redndit#readme",
+  "description": ""
 }
