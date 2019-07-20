@@ -1,11 +1,17 @@
 <template>
   <div class="AddCommentCard">
+    <form class="col-8" @submit.prevent="addComment">
+      <div class="form-group">
+        <label for="Name">Title</label>
+        <input type="text" name="name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" name="name" class="form-control">
+      </div>
 
 
-
-
-    <!-- //TODO add comment form here -->
-
+    </form>
   </div>
 </template>
 

@@ -13,21 +13,10 @@
         <b-col>
           <CommentCard v-for="comment in comments" :key="comment._id" :pID="comment._id"></CommentCard>
         </b-col>
-
-        <b-col>
-          <AddCommentCard></AddCommentCard>
-        </b-col>
       </b-row>
-
-      <b-row>
-        <b-col cols="1"></b-col>
-        <b-col>
-          <CommentCard v-for="comment in comments" :key="comment._id" :pID="comment._id"></CommentCard>
-        </b-col>
-
-        <b-col>
-          <AddCommentCard></AddCommentCard>
-        </b-col>
+      <b-col>
+        <AddCommentCard></AddCommentCard>
+      </b-col>
       </b-row>
     </b-container>
   </div>
@@ -53,7 +42,6 @@
     },
     computed: {
       post() {
-        debugger;
         return this.$store.state.post;
       },
       comments() {
