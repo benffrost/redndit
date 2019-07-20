@@ -56,7 +56,10 @@ export default {
   methods: {
     addPost() {
       this.$store.dispatch("addPost", this.post);
+      this.$router.push({ name: 'home' })
+      
     }
+
   },
   components: {}
 };
